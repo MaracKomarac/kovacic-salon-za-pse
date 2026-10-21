@@ -1,0 +1,192 @@
+:root {
+  --plava: #cfe8f7;
+  --zuta: #fff3c4;
+  --tamna: #1f3a4d;
+  --naglasak: #1d5f86;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, sans-serif;
+  color: var(--tamna);
+  line-height: 1.6;
+  background: #fffdf7;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem max(1.5rem, calc((100% - 1100px) / 2));
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
+.logo { font-weight: 700; font-size: 1.4rem; text-decoration: none; color: var(--tamna); }
+
+nav { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+nav a { text-decoration: none; color: var(--tamna); }
+nav a:hover { color: var(--naglasak); }
+
+.btn {
+  display: inline-block;
+  background: var(--naglasak);
+  color: white !important;
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--plava), var(--zuta));
+  text-align: center;
+  padding: 5rem 1.5rem;
+}
+.hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); max-width: 700px; margin: 0 auto 1rem; }
+.hero p { margin-bottom: 1.5rem; }
+
+footer { text-align: center; padding: 2rem; background: var(--tamna); color: white; }
+
+/* Zajednički razmak za sve sekcije unutar main */
+main section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Trenutna stranica u izborniku */
+nav a[aria-current="page"] {
+  font-weight: 700;
+  border-bottom: 2px solid var(--naglasak);
+}
+
+/* Naslov stranice */
+.naslov-stranice { text-align: center; padding-bottom: 1rem; }
+.naslov-stranice h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: .5rem; }
+.napomena {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--zuta);
+  padding: .4rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Cjenik u mreži */
+.cjenik {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.kartica {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  text-align: center;
+}
+.kartica h2 { font-size: 1.3rem; }
+.cijena { font-size: 2.5rem; font-weight: 800; color: var(--naglasak); }
+.trajanje { color: #555; margin-bottom: 1rem; }
+
+/* Kvačice umjesto točkica */
+.kartica ul, .pravila ul { list-style: none; }
+.kartica li, .pravila li { padding: .3rem 0; }
+.kartica li::before, .pravila li::before { content: "✓ "; color: var(--naglasak); font-weight: 700; }
+
+/* Pravila */
+.pravila {
+  background: var(--plava);
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 3rem !important;
+}
+.pravila h2 { margin-bottom: 1rem; }
+.pravila .btn { margin-top: 1.5rem; }
+
+/* Galerija */
+.galerija {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.galerija figure {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+.galerija img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.galerija figcaption {
+  padding: .8rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Kontakt */
+.kontakt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.obrazac, .info {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+.obrazac { display: flex; flex-direction: column; gap: .4rem; }
+.obrazac label { font-weight: 600; margin-top: .6rem; }
+.obrazac input, .obrazac select, .obrazac textarea {
+  font: inherit;
+  padding: .7rem;
+  border: 1px solid #c9d6df;
+  border-radius: 10px;
+}
+.obrazac input:focus, .obrazac select:focus, .obrazac textarea:focus {
+  outline: 3px solid var(--plava);
+  border-color: var(--naglasak);
+}
+.obrazac .btn { margin-top: 1.2rem; border: none; cursor: pointer; font-size: 1rem; }
+.info h2 { font-size: 1.1rem; margin-top: 1rem; }
+.info iframe { width: 100%; height: 250px; border: 0; border-radius: 12px; margin-top: 1rem; }
+
+main .hero { max-width: none; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+
+/* Prednosti i recenzije */
+.prednosti h2, .recenzije h2 { text-align: center; margin-bottom: 2rem; }
+.prednosti-mreza {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.prednosti article, .recenzije blockquote {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  text-align: center;
+}
+.ikona { font-size: 2.5rem; }
+.recenzije blockquote { background: var(--zuta); font-style: italic; }
+.recenzije cite { display: block; margin-top: 1rem; font-style: normal; font-weight: 600; }
