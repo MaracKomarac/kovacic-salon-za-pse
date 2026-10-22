@@ -190,3 +190,36 @@ main { flex: 1; }
 .ikona { font-size: 2.5rem; }
 .recenzije blockquote { background: var(--zuta); font-style: italic; }
 .recenzije cite { display: block; margin-top: 1rem; font-style: normal; font-weight: 600; }
+
+/* Izbornik: na računalu linkovi stoje u jednom redu */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Na računalu se gumb ☰ ne prikazuje */
+.hamburger {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Mobitel: zaslon uži od 700px */
+@media (max-width: 700px) {
+  .hamburger { display: block; }
+
+  nav ul {
+    display: none;            /* linkovi su skriveni */
+    flex-direction: column;   /* jedan ispod drugoga */
+    width: 100%;
+  }
+
+  nav ul.otvoren { display: flex; }  /* prikažu se kad JS doda klasu */
+
+  nav { flex-wrap: wrap; }
+}
